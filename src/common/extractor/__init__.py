@@ -1,3 +1,3 @@
-from .nyc_taxi_data_extractor import NycTaxiDataExtractor
+from .extractor import Extractor
 
-__all__ = ('NycTaxiDataExtractor',)
+__all__ = ('Extractor',)
