@@ -1,14 +1,14 @@
 import requests
 
-from src.common.crawler import BaseCrawler
+from src.fe.fetcher import BaseFetcher
 
 
-class AssetCrawler(BaseCrawler):
+class AssetFetcher(BaseFetcher):
 
     @staticmethod
-    def crawl():
-        url = 'https://api.github.com/repos/{0}/{1}/releases'.format(BaseCrawler.__REPO_OWNER__,
-                                                                     BaseCrawler.__REPO_NAME__)
+    def fetch():
+        url = 'https://api.github.com/repos/{0}/{1}/releases'.format(BaseFetcher.__REPO_OWNER__,
+                                                                     BaseFetcher.__REPO_NAME__)
         response = requests.get(url)
         assets_urls = {
             item['tag_name']: item['assets_url']

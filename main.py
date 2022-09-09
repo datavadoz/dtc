@@ -1,4 +1,4 @@
-from src.common.extractor import Extractor
+from src.fe.extractor import Extractor
 
 
 if __name__ == '__main__':

@@ -1,9 +1,9 @@
-import os
 import datetime
+import os
 import shutil
 
-from src.common.crawler import AssetCrawler
-from src.common.downloader import Downloader
+from src.fe.downloader import Downloader
+from src.fe.fetcher import AssetFetcher
 
 
 class Extractor:
@@ -39,7 +39,7 @@ class Extractor:
 
     def _download_raw_data(self):
         print('Getting GitHub download raw data link...')
-        download_info = AssetCrawler.crawl()
+        download_info = AssetFetcher.fetch()
         for tag_name, download_file_info in download_info.items():
             tag_dir = self._gen_tag_dir(tag_name)
             downloader = Downloader(download_dir=tag_dir)

@@ -1,6 +1,6 @@
 import os
-import requests
 
+import requests
 from tqdm import tqdm
 
 
@@ -11,7 +11,6 @@ class Downloader:
         self.download_dir = download_dir if download_dir else Downloader.__download_dir__
 
     def get(self, url, file_name):
-
         response = requests.get(url, stream=True)
         if response.status_code != 200:
             error_code = response.status_code
