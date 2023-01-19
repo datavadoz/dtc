@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=dtc
+    volumes:
+      - dtc-pg-volume:/var/lib/postgres/data
+    networks:
+      - internal
+
+  pgadmin:
+    image: dpage/pgadmin4:6.19
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=danhvo.uit@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "8000:80"
+    volumes:
+      - ./pgadmin:/var/lib/pgadmin
+    networks:
+      - internal
+
+  worker:
+    image: worker:1.0
+    build:
+      context: worker
+    command: tail -F anything
+    networks:
+      - internal
+
+networks:
+  internal:
+
+volumes:
+  dtc-pg-volume:
+
