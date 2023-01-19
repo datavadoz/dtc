@@ -20,3 +20,8 @@ docker compose up -d
 ### Question 1: Which tag has the following text? - Write the image ID to the file
 ![](images/answer_1.jpg)\
 **Answer**: --iidfile string
+
+### Question 2: How many python packages/modules are installed in python:3.9 image?
+![](images/answer_2.jpg)\
+**Answer**: 3
+
