@@ -18,5 +18,5 @@ docker compose up -d
 
 ## Homework
 ### Question 1: Which tag has the following text? - Write the image ID to the file
-![](answer_1.jpg)\
+![](images/answer_1.jpg)\
 **Answer**: --iidfile string
