@@ -12,6 +12,8 @@ Docker with compose plugin (current testing version: 20.10.17).
 ## Instruction
 Build and bring system up:
 ```
+mkdir -p pgadmin
+sudo chown -R 5050:5050 pgadmin
 docker compose build
 docker compose up -d
 ```
