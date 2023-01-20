@@ -26,6 +26,8 @@ services:
 
   worker:
     image: worker:1.0
+    environment:
+      - TZ=UTC
     build:
       context: worker
     command: tail -F anything
