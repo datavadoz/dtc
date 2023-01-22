@@ -1,2 +1,6 @@
 .idea
 week_1/pgadmin/
+.terraform
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
