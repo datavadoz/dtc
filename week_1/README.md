@@ -20,11 +20,23 @@ docker compose up -d
 
 ## Homework - Docker & SQL
 ### Question 1: Which tag has the following text? - Write the image ID to the file
-![](images/answer_1.jpg)\
+```
+$ docker build --help | grep "Write the image ID to the file"
+      --iidfile string          Write the image ID to the file
+```
 **Answer**: --iidfile string
 
 ### Question 2: How many python packages/modules are installed in python:3.9 image?
-![](images/answer_2.jpg)\
+```
+$ docker run -it python:3.9 pip list
+Package    Version
+---------- -------
+pip        22.0.4
+setuptools 58.1.0
+wheel      0.38.4
+WARNING: You are using pip version 22.0.4; however, version 22.3.1 is available.
+You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.
+```
 **Answer**: 3
 
 ### Question 3: How many taxi trips were totally made on January 15?
