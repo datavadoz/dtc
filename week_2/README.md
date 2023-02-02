@@ -37,3 +37,6 @@ Browse orion webpage: [localhost:4200](localhost:4200/)
 **Answer**:
 > 447770
 
+### Question 2: What’s the cron schedule for "the first of every month at 5am UTC"?
+**Answer**:
+> 0 5 1 * *
