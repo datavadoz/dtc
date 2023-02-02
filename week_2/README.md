@@ -35,8 +35,12 @@ Browse orion webpage: [localhost:4200](localhost:4200/)
 07:22:10.612 | INFO    | Flow run 'quaint-manatee' - Finished in state Completed('All states completed.')
 ```
 **Answer**:
-> 447770
+> 447,770
 
 ### Question 2: What’s the cron schedule for "the first of every month at 5am UTC"?
 **Answer**:
 > 0 5 1 * *
+
+### Question 3: Load yellow taxi data for Feb. 2019 and March 2019 from GCS into BigQuery. How many rows did your flow code process?
+**Answer**:
+> 14,851,920
