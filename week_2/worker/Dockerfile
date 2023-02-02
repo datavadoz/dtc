@@ -16,5 +16,5 @@ RUN . /root/.bashrc && \
     /root/miniconda3/bin/conda create -y -n dtc python=3.10 && \
     /root/miniconda3/bin/conda env update --name dtc --file /root/worker/env.yml
 
-COPY ["workflow.py", "entrypoint.sh", "/root/worker/"]
+COPY ["etl_web_to_gcs.py", "etl_gcs_to_bq.py", "entrypoint.sh", "/root/worker/"]
 ENTRYPOINT ["/bin/bash", "/root/worker/entrypoint.sh"]
