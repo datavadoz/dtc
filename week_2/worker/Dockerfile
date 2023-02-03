@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 RUN apt-get update -y \
-    && apt-get install -y wget libffi7
+    && apt-get install -y wget libffi7 git
 
 ## Install Miniconda3
 RUN TMP_DIR=$(mktemp); mkdir -p /root/miniconda3 /root/worker; \
