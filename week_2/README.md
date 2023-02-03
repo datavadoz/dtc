@@ -69,10 +69,33 @@ Browse orion webpage: [localhost:4200](localhost:4200/)
 1. Create GitHub block from Orion UI.
 2. Create deployment yaml file:
 ```
-prefect deployment build week_2/worker/etl_web_to_gcs.py:etl_web_to_gcs --storage-block github/<github_block_name_from_step_1> -n <deployment_name>d
+prefect deployment build week_2/worker/etl_web_to_gcs.py:etl_web_to_gcs --storage-block github/<github_block_name_from_step_1> -n <deployment_name>
 ```
 3. Start agent on **default** queue:
 ```
 prefect agent start --work-queue "default"
 ```
-4. Run workflow with required params:
+4. Run workflow with required params
+
+### Question 5: Email or Slack notifications
+```
+...
+06:46:32.245 | INFO    | Task run 'clean-2c6af9f6-0' - rows: 514392
+06:46:32.440 | INFO    | Task run 'clean-2c6af9f6-0' - Finished in state Completed()
+06:46:32.463 | INFO    | Flow run 'mu3-tarod-terminus' - Created task run 'write_local-09e9d2b8-0' for task 'write_local'
+06:46:32.464 | INFO    | Flow run 'mu3-tarod-terminus' - Executing 'write_local-09e9d2b8-0' immediately...
+06:46:33.565 | INFO    | Task run 'write_local-09e9d2b8-0' - Finished in state Completed()
+06:46:33.594 | INFO    | Flow run 'mu3-tarod-terminus' - Created task run 'write_gcs-67f8f48e-0' for task 'write_gcs'
+06:46:33.594 | INFO    | Flow run 'mu3-tarod-terminus' - Executing 'write_gcs-67f8f48e-0' immediately...
+06:46:33.653 | INFO    | Task run 'write_gcs-67f8f48e-0' - Getting bucket 'dtc-week-2'.
+06:46:35.039 | INFO    | Task run 'write_gcs-67f8f48e-0' - Uploading from PosixPath('data/green/green_tripdata_2019-04.parquet') to the bucket 'dtc-week-2' path 'data/green/green_tripdata_2019-04.parquet'.
+06:46:39.256 | INFO    | Task run 'write_gcs-67f8f48e-0' - Finished in state Completed()
+06:46:39.280 | INFO    | Flow run 'mu3-tarod-terminus' - Finished in state Completed('All states completed.')
+06:46:40.121 | INFO    | prefect.infrastructure.process - Process 'mu3-tarod-terminus' exited cleanly.
+```
+**Answer:**
+> 514,392
+
+### Question 6. Secrets. how many characters are shown as asterisks (*) on the next page of the UI?
+**Answer:**
+> 8
