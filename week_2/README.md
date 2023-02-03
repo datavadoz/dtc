@@ -44,3 +44,35 @@ Browse orion webpage: [localhost:4200](localhost:4200/)
 ### Question 3: Load yellow taxi data for Feb. 2019 and March 2019 from GCS into BigQuery. How many rows did your flow code process?
 **Answer**:
 > 14,851,920
+
+### Question 4: Github Storage Block. How many rows of green taxi data for Nov. 2020 were processed by the script?
+```
+...
+05:37:30.322 | INFO    | Task run 'clean-2c6af9f6-0' - rows: 88605
+05:37:30.514 | INFO    | Task run 'clean-2c6af9f6-0' - Finished in state Completed()
+05:37:30.541 | INFO    | Flow run 'naruto' - Created task run 'write_local-09e9d2b8-0' for task 'write_local'
+05:37:30.542 | INFO    | Flow run 'naruto' - Executing 'write_local-09e9d2b8-0' immediately...
+05:37:30.763 | INFO    | Task run 'write_local-09e9d2b8-0' - Finished in state Completed()
+05:37:30.784 | INFO    | Flow run 'naruto' - Created task run 'write_gcs-67f8f48e-0' for task 'write_gcs'
+05:37:30.785 | INFO    | Flow run 'naruto' - Executing 'write_gcs-67f8f48e-0' immediately...
+05:37:30.845 | INFO    | Task run 'write_gcs-67f8f48e-0' - Getting bucket 'dtc-week-2'.
+05:37:32.975 | INFO    | Task run 'write_gcs-67f8f48e-0' - Uploading from PosixPath('data/green/green_tripdata_2020-11.parquet') to the bucket 'dtc-week-2' path 'data/green/green_tripdata_2020-11.parquet'.
+05:37:35.196 | INFO    | Task run 'write_gcs-67f8f48e-0' - Finished in state Completed()
+05:37:35.224 | INFO    | Flow run 'naruto' - Finished in state Completed('All states completed.')
+05:37:36.039 | INFO    | prefect.infrastructure.process - Process 'naruto' exited cleanly.
+```
+**Answer**:
+> 88,605
+
+*Note*: Create deployment with GitHub storage:
+
+1. Create GitHub block from Orion UI.
+2. Create deployment yaml file:
+```
+prefect deployment build week_2/worker/etl_web_to_gcs.py:etl_web_to_gcs --storage-block github/<github_block_name_from_step_1> -n <deployment_name>d
+```
+3. Start agent on **default** queue:
+```
+prefect agent start --work-queue "default"
+```
+4. Run workflow with required params:
