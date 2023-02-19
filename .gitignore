@@ -5,3 +5,7 @@ week_1/pgadmin/
 *.tfstate
 *.tfstate.backup
 logs
+week_4/target/
+week_4/dbt_packages/
+week_4/logs/
+
