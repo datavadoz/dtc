@@ -23,3 +23,9 @@ FROM `trips_data_all.fact_trips`
 **Answer**: 
 > 61,604,284 (closest with 61,635,329)
 
+### Question 2: What is the distribution between service type filtering by years 2019 and 2020 data as done in the videos?
+![](images/question_2.jpg)
+
+**Answer**:
+> 89.8/10.2 (closest to 89.9/10.1)
+
