@@ -29,3 +29,11 @@ FROM `trips_data_all.fact_trips`
 **Answer**:
 > 89.8/10.2 (closest to 89.9/10.1)
 
+### Question 3: What is the count of records in the model stg_fhv_tripdata after running all models with the test run variable disabled (:false)?
+```
+SELECT COUNT(*)
+FROM `dtc-de-375513.trips_data_all.fhv_tripdata_2019`
+```
+**Answer**:
+> 43,244,696
+
