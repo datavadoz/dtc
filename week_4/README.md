@@ -45,3 +45,8 @@ FROM `dtc-de-375513.trips_data_all.fact_fhv_tripdata`
 **Answer**:
 > 22,998,722
 
+### Question 5: What is the month with the biggest amount of rides after building a tile for the fact_fhv_trips table?
+![](images/question_5.jpg)
+**Answer**:
+> January
+
