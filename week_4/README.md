@@ -37,3 +37,11 @@ FROM `dtc-de-375513.trips_data_all.fhv_tripdata_2019`
 **Answer**:
 > 43,244,696
 
+### Question 4: What is the count of records in the model fact_fhv_trips after running all dependencies with the test run variable disabled (:false)?
+```
+SELECT COUNT(*)
+FROM `dtc-de-375513.trips_data_all.fact_fhv_tripdata`
+```
+**Answer**:
+> 22,998,722
+
