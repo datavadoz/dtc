@@ -1,30 +1,25 @@
 # Week 5
 
 ## Overview
-This week covers batch processing with Spark
+This week covers batch processing with Spark.
 
 ## Setup
 
-Run Spark via Docker :
+Build customized spark-py image:
 ```
-docker container run --rm -it -p 8000:4040 --name my_spark apache/spark-py:v3.3.2 bash
+docker build . -t dtc-week-5
 ```
-
 
 ## Homework
 ### Question 1: Output of spark.version
 ```
-$ docker container run --rm -it -p 8000:4040 --name my_spark apache/spark-py:v3.3.2 bash
-$ export PYTHONPATH="${SPARK_HOME}/python/:$PYTHONPATH"
-$ export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.5-src.zip:$PYTHONPATH"
-$ python3
+$ docker container run --rm -it -p 8000:4040 --name week-5 dtc-week-5 /opt/spark/bin/pyspark
 >>> import pyspark
 >>> from pyspark.sql import SparkSession
 >>>
->>> spark = SparkSession.builder.master("local[]")
+>>> spark = SparkSession.builder.master("local[*]").appName("Test").getOrCreate()
 >>> spark.version
 '3.3.2'
 ```
 **Answer**: 
 > 3.3.2
-
