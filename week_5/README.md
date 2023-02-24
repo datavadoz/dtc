@@ -52,3 +52,17 @@ total 270M
 ```
 **Answer**:
 > 24MB
+
+### Question 3: How many taxi trips were there on June 15?
+
+```
+...
+>>> df = spark.read.parquet('fhvhv/2021/06')
+>>> from pyspark.sql import functions as F
+>>> df = df.withColumn('pickup_date', F.to_date(df.pickup_datetime))
+>>> df.filter(df.pickup_date == '2021-06-15').count()
+452470
+```
+**Answer**:
+> 452,470
+
