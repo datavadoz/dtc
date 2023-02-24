@@ -66,3 +66,15 @@ total 270M
 **Answer**:
 > 452,470
 
+### Question 4: How long was the longest trip in Hours?
+```
+...
+>>> from pyspark.sql import functions as F
+>>> df = spark.read.parquet('fhvhv/2021/06')
+>>> df = df.withColumn('duration', F.unix_timestamp(df.dropoff_datetime) - F.unix_timestamp(df.pickup_datetime))
+>>> df.agg(F.max(df.duration)).take(1)[0][0] / 3600
+66.8788888888889
+```
+**Answer**:
+> 66.87 Hours
+
