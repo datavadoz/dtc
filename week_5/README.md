@@ -92,3 +92,39 @@ b26dbbd3cba1   dtc-week-5   "/opt/entrypoint.sh …"   2 hours ago   Up 2 hours 
 **Answer**:
 > 4040
 
+### Question 6: Using the zone lookup data and the fhvhv June 2021 data, what is the name of the most frequent pickup location zone?
+
+```
+>>> from spark.sql.functions import desc
+>>> fhvhv = spark.read.option('header', 'true').option('InferSchema', 'true').csv('fhvhv_tripdata_2021-06.csv')
+>>> zone = spark.read.option('header', 'true').option('InferSchema', 'true').csv('taxi_zone_lookup.csv')
+>>> fhvhv.groupby('PULocationID').count().join(zone, fhvhv['PULocationID'] == zone['LocationID'], 'inner').sort(desc('count')).select('Zone', 'count').show()
++--------------------+------+
+|                Zone| count|
++--------------------+------+
+| Crown Heights North|231279|
+|        East Village|221244|
+|         JFK Airport|188867|
+|      Bushwick South|187929|
+|       East New York|186780|
+|TriBeCa/Civic Center|164344|
+|   LaGuardia Airport|161596|
+|            Union Sq|158937|
+|        West Village|154698|
+|             Astoria|152493|
+|     Lower East Side|151020|
+|        East Chelsea|147673|
+|Central Harlem North|146402|
+|Williamsburg (Nor...|143683|
+|          Park Slope|143594|
+|  Stuyvesant Heights|141427|
+|        Clinton East|139611|
+|West Chelsea/Huds...|139431|
+|             Bedford|138428|
+|         Murray Hill|137879|
++--------------------+------+
+```
+
+**Answer**:
+> Crown Heights North
+
